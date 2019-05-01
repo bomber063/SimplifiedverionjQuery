@@ -1,6 +1,6 @@
 # SimplifiedverionjQuery
 
-##范的错误
+## 范的错误
 ### 关键字，比如class不可以作为函数的形参
 用了class作为addClass函数的形参，调用该addClass函数的报错error SyntaxError: Unexpected token class  
 后面改用classes作为形参就解决了。  
