@@ -85,6 +85,9 @@ item1.getSibings.call(item1)
 item1.addClass.call(item1,['red', 'border'])
 ```
 
+### 修改原型链来实现的缺点
+如果有两个或者多个人同时设置了原型，并添加了相同的key,那么还是会互相覆盖。
+
 
 
 
