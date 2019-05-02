@@ -61,7 +61,29 @@ item1.addClass(['red', 'border'])
 Node.prototype.getSibings=直接写成匿名函数
 Node.prototype.addClass=直接写成匿名函数
 ```
+#### 隐式用到的this的说明
+```
+item3.getSibings()
+item1.addClass(['red', 'border'])
+```
+前面的item3和item1会通过this传入到函数里面，函数本身被调用的就有一个this。如果**没有直接写出this**，那么这个this就是该函数调用前的那个，比如这里的getSibings()里面的this就是item1，而addClass(['red', 'border'])的this就是item1。  
 
+#### 显式用到的this的说明
+当你要写出了this的时候，this会覆盖掉前面的那个调用的信息item1。   
+比如  
+`item1.getSibings.call(item5)`
+那么此时的this是item5,会覆盖掉原来的this为item3。  
+如果加上this但是不改变结果，只需要this和前面的值相同即可。
+把代码
+```
+item1.getSibings()
+item1.addClass(['red', 'border'])
+```
+修改为带this的，但是和原来代码效果一样的代码  
+```
+item1.getSibings.call(item1)
+item1.addClass.call(item1,['red', 'border'])
+```
 
 
 
