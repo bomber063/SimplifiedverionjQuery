@@ -28,7 +28,10 @@ if...else代码
 function getSibings(),其中getSibings就代表该函数。function就是一个函数声明，错误的把getSibings()当做函数，getSibings()应该叫做该函数的调用。  
 
 ### 增加命名空间的目的
-为了代表是谁的库。比如jQuery写的库就最开始会有一个$或者jQuery，而我的库就可以叫做honghong。  
+1. 为了代表是谁的库。比如jQuery写的库就最开始会有一个$或者jQuery，而我的库就可以叫做honghong。  
+2. 如果用户（一个人）用了一个和该库名字营养的变量，比如用了一个  
+`var getSibings=1`
+这样在用该库，因为该库里面有一个函数名字也叫做getSibings，那么就会覆盖掉getSibings=1。所以可以防止覆盖声明的全局变量。  
 
 ## 把addClass修改为数组及forEach来遍历，简单一点
 addClass的修改为数组来forEach遍历  
