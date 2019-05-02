@@ -1,25 +1,17 @@
-window.jQuery = function(node) {
-    var divs = document.getElementsByTagName(node)
-    return {
-      addClass: function(classes) {
-        for (var i = 0; i < divs.length; i++) {
-          divs[i].classList.add(classes)
-        }
-      },
-      setText: function(wenben) {
-        for (var i = 0; i < divs.length; i++) {
-          divs[i].textContent = wenben
-        }
-      }
+function geiSibings(node){
+  var allchirdren = item1.parentNode.children
+  
+  var arr = {
+    length: 0
+  }
+  for (i = 0; i < allchirdren.length; i++) {
+    if (allchirdren[i] !== node) {
+      arr[arr.length] = allchirdren[i]
+      arr.length += 1
     }
   }
+  console.log(arr)
+  }
   
-  window.$ = jQuery
-  
-  var $div = $('div')
-//   div1.onclick=function(){
-  $div.addClass('red') // 可将所有 div 的 class 添加一个 red
-  $div.setText('hi') // 可将所有 div 的 textContent 变为 hi
-//   console.log(1)
-// }
+  geiSibings(item1)
 
