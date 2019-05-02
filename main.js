@@ -23,5 +23,5 @@ Node.prototype.addClass = function (classes) {
 // honghong.getSibings(item1)
 // honghong.addClass(item3, ['red', 'border'])
 
-item1.getSibings()
-item1.addClass(['red', 'border'])
+item1.getSibings.call(item1)
+item1.addClass.call(item1,['red', 'border'])
