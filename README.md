@@ -120,7 +120,7 @@ jQuery()的括号里面不仅可以传入DOM元素，还可以传入选择器，
 或者
 `var node2=jQuery('div>div:nth-child(0n+1)')`
 等等
-4. 并且此时还用到了**闭包**，闭包就是一个函数（比如addClass）用到的该函数外面的变量（比如let node），那么这个函数和函数外面的变量统称为闭包。这个外面的变量，在函数内部一直在用他，但是用户却访问不到。y因为这个变量（比如let node）的作用域在JQuery这个函数里面，相当于一个隐藏的或者中间变量。
+4. 并且此时还用到了**闭包**，闭包就是一个函数（比如addClass）用到的该函数外面的变量（比如let node），那么这个函数和函数外面的变量统称为闭包。这个外面的变量，在函数内部一直在用他，但是用户却访问不到。因为这个变量（比如let node）的作用域在JQuery这个函数里面，相当于一个隐藏的或者中间变量。
 ```
 window.jQuery = function(nodeOrSelector){//传入的nodeOrSelector在return之前经过改变传递给了node
     let node
