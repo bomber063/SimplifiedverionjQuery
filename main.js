@@ -10,8 +10,8 @@ function geiSibings(node){
       arr.length += 1
     }
   }
-  console.log(arr)
+  return arr
   }
   
-  geiSibings(item1)
+  console.log(geiSibings(item1))
 
