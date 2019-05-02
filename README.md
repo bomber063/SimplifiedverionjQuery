@@ -30,3 +30,10 @@ function getSibings(),其中getSibings就代表该函数。function就是一个�
 ### 增加命名空间的目的
 为了代表是谁的库。比如jQuery写的库就最开始会有一个$或者jQuery，而我的库就可以叫做honghong。  
 
+## 把addClass修改为数组及forEach来遍历，简单一点
+addClass的修改为数组来forEach遍历
+`classes.forEach((value)=>node.classList.add(value))`  
+
+
+
+
