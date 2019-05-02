@@ -44,7 +44,7 @@ addClass的修改为数组来forEach遍历
 `honghong.getSibings=function(){}`   
 
 ## 用item3.getSibings()来代替honghong.getSibings(item3)
-### 修改原型链来实现
+### 修改浏览器自带的Node原型链来实现
 把Node的原型增加这两个函数的方法，增加代码  
 ```
 Node.prototype.getSibings=honghong.getSibings
@@ -85,8 +85,27 @@ item1.getSibings.call(item1)
 item1.addClass.call(item1,['red', 'border'])
 ```
 
-### 修改原型链来实现的缺点
+### 修改浏览器自带的Node原型链来实现的缺点
 如果有两个或者多个人同时设置了原型，并添加了相同的key,那么还是会互相覆盖。
+
+### 另一种方法自己创建的构造函数来调用浏览器的自带的原型来实现
+该方法可以防止相互覆盖
+具体实现思路就是：
+1. 自己写一个构造函数，该构造函数**返回(return)**getSibings()和addClass();  
+2. 该构造函数可以赋值给一个变量，那么该变量就获得了该构造函数所返回（return）的函数getSibings()和addClass()的使用权;  
+3. 该构造函数赋的匿名函数需要一个形参来获得操作的对象;  
+`window.Node2 = function(node){}`
+4. 该构造函数赋值给一个变量的时候传一个实参;  
+`var node2 = Node2(item1)`
+5. 此时this就用不到了，因为this前面是一个变量(node2)，而我们要用到的参数是构造函数里面传的参数;
+```
+node2.getSibings()
+node2.addClass(['red', 'border'])
+```
+6. node2.getSibings也可以写成node2.getSibings()，只是前面代表了一个函数，后面代表了执行这个函数。因为这里并不需要传入参数，所以他们是实现的效果先相同;
+7. node2.addClass(['red', 'border']),这里需要传入参数，所以这里必须加他的括号并传入一个数组参数，说明传入这个数组来执行这个函数。
+
+
 
 
 
