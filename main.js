@@ -1,4 +1,4 @@
-function geiSibings(node) {
+function getSibings(node) {
   var allchirdren = item1.parentNode.children
 
   var arr = {
@@ -13,7 +13,7 @@ function geiSibings(node) {
   return arr
 }
 
-console.log(geiSibings(item1))
+
 
 function addClass(node, classes) {
 
@@ -24,5 +24,9 @@ function addClass(node, classes) {
   }
 }
 
-addClass(item3, { 'red': true, 'border': true })
+window.honghong={}//增加命名空间honghong 
+honghong.getSibings=getSibings//getSibings才是函数，getSibings()是调用该函数
+honghong.addClass=addClass
+honghong.getSibings(item1)
+honghong.addClass(item3, { 'red': true, 'border': true })
 
