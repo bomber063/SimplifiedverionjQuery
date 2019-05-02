@@ -37,11 +37,12 @@ function getSibings(),其中getSibings就代表该函数。function就是一个�
 addClass的修改为数组来forEach遍历  
 `classes.forEach((value)=>node.classList.add(value))`  
 
-##使用命名空间，把具名函数变成匿名函数，防止覆盖全局变量
+## 使用命名空间，把具名函数变成匿名函数，防止覆盖全局变量
 比如把  
-`function getSibings(){}`
-变为
-`honghong.getSibings=function(){}`  
+`function getSibings(){}`  
+变为  
+`honghong.getSibings=function(){}`   
+
 
 
 
