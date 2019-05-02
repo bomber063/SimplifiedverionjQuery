@@ -55,6 +55,13 @@ Node.prototype.addClass=honghong.addClass
 item3.getSibings()
 item1.addClass(['red', 'border'])
 ```
+#### 继续优化
+可以把原型链后面直接写成函数  
+```
+Node.prototype.getSibings=直接写成匿名函数
+Node.prototype.addClass=直接写成匿名函数
+```
+
 
 
 
