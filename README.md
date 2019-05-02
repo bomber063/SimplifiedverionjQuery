@@ -1,6 +1,6 @@
 # SimplifiedverionjQuery
 
-## 范的错误
+## 犯的错误
 ### 关键字，比如class不可以作为函数的形参
 用了class作为addClass函数的形参，调用该addClass函数的报错error SyntaxError: Unexpected token class  
 后面改用classes作为形参就解决了。  
@@ -16,4 +16,6 @@
 3. addClass函数通过API——Element.classList.add()，加上for循环来实现；    
 4. setText函数通过API——Node.textContent，加上for循环来实现；  
 5. 因为只需要操作相应的DOM元素，所以不需要返回(return)任何值。  
+
+更详细的实现思路跟学习笔记见分支[sidebar](https://github.com/bomber063/SimplifiedverionjQuery/tree/sidebar)
 
