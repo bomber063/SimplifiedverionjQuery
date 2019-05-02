@@ -1,6 +1,7 @@
 window.honghong = {}//增加命名空间honghong 
-honghong.getSibings = function () {
-  var allchirdren =this.parentNode.children
+
+Node.prototype.getSibings = function () {
+  var allchirdren = this.parentNode.children
 
   var arr = {
     length: 0
@@ -14,12 +15,9 @@ honghong.getSibings = function () {
   return arr
 }
 
-honghong.addClass = function (classes) {
+Node.prototype.addClass = function (classes) {
   classes.forEach((value) => this.classList.add(value))
 }
-
-Node.prototype.getSibings=honghong.getSibings
-Node.prototype.addClass=honghong.addClass
 
 
 // honghong.getSibings(item1)
