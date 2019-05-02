@@ -1,5 +1,10 @@
-/* .black{
+.black{
     color: black;
+}
+
+.red.border{
+    color: red;
+  border:1px solid red
 }
 
 .red{
@@ -16,7 +21,7 @@
 
 .yellow{
     color: yellow;
-} */
+}
 
 .red{
     color: red;

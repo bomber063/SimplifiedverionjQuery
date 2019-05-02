@@ -1,6 +1,6 @@
-function geiSibings(node){
+function geiSibings(node) {
   var allchirdren = item1.parentNode.children
-  
+
   var arr = {
     length: 0
   }
@@ -11,7 +11,22 @@ function geiSibings(node){
     }
   }
   return arr
+}
+
+console.log(geiSibings(item1))
+
+function addClass(node, classes) {
+
+  for (let key in classes) {
+    var value = classes[key]
+    if (value) {
+      node.classList.add(key)
+    }
+    else {
+      node.classList.remove(key)
+    }
   }
-  
-  console.log(geiSibings(item1))
+}
+
+addClass(item3, { 'red': true, 'border': true })
 
