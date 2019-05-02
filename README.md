@@ -43,6 +43,21 @@ addClass的修改为数组来forEach遍历
 变为  
 `honghong.getSibings=function(){}`   
 
+## 用item3.getSibings()来代替honghong.getSibings(item3)
+### 修改原型链来实现
+把Node的原型增加这两个函数的方法，增加代码  
+```
+Node.prototype.getSibings=honghong.getSibings
+Node.prototype.addClass=honghong.addClass
+```
+就可以直接使用  
+```
+item3.getSibings()
+item1.addClass(['red', 'border'])
+```
+
+
+
 
 
 
