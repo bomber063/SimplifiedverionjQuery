@@ -105,6 +105,42 @@ node2.addClass(['red', 'border'])
 6. node2.getSibings也可以写成node2.getSibings()，只是前面代表了一个函数，后面代表了执行这个函数。因为这里并不需要传入参数，所以他们是实现的效果先相同;
 7. node2.addClass(['red', 'border']),这里需要传入参数，所以这里必须加他的括号并传入一个数组参数，说明传入这个数组来执行这个函数。
 
+## 终于引出了jQuery
+把Node2改成jQuery，所以jQuery它是一个构造函数，它可以接受一个元素（节点），这个元素（节点）就是旧的对象，**返回一个新的对象（jQuery对象），新的对象里面有各种函数和属性（也就是JQuery的API）**，这个**新的函数里面有JavaScript原生的API**，也可以说是DOM原型链中的各种接口，函数。**可以节省很多代码**，因为原生的JavaScript在return的函数里面被jQuery包装起来了。
+简洁的说就是jQuery他接受一个旧的对象（比如DOM对象），返回给你一个新的对象（比如DOM对象）。新的对象会调用旧的对象里面的API
+
+### jQuery更智能
+jQuery()的括号里面不仅可以传入DOM元素，还可以传入选择器，所以如果是选择器，那么就会出现字符串或者对象的判断。
+
+### 需要注意的问题
+1. typeof 返回的是**字符串**，需要加引号，并且返回的对象的**第一个字母o是小写**，也就是'object'，字符串**第一个字母s也是小写**，也就是'string'。  
+2. 为了保证node不变，并且node作为return之前的一个全局变量，那么应该在**return之前来判断传入的参数是DOM对象，还是字符串（选择器）**,经过判断之后把传入的参数经过操作后继续保存在node中，那么后续的代码都可以不用改变了。  
+3. 这样就可以使用选择器了，比如使用
+`var node2 = jQuery('#item3')`
+或者
+`var node2=jQuery('div>div:nth-child(0n+1)')`
+等等
+4. 并且此时还用到了**闭包**，闭包就是一个函数（比如addClass）用到的该函数外面的变量（比如let node），那么这个函数和函数外面的变量统称为闭包。这个外面的变量，在函数内部一直在用他，但是用户却访问不到。y因为这个变量（比如let node）的作用域在JQuery这个函数里面，相当于一个隐藏的或者中间变量。
+```
+window.jQuery = function(nodeOrSelector){//传入的nodeOrSelector在return之前经过改变传递给了node
+    let node
+    if(){node = document.querySelector(nodeOrSelector)}
+    else if(){node=nodeOrSelector}
+  return {
+    getSibings: function () {操作node},
+    addClass: function (classes) {操作node}
+  }
+}
+var node2 = jQuery('#item1')
+```
+
+
+
+
+
+
+
+
 
 
 
