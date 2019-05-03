@@ -197,6 +197,28 @@ var node2 = jQuery('#item1')
 ```
 
 
+### 设置多个文本和以数组方式获取多个文本的结合，就可以合并前面两个代码了
+其实只需要用if..else即可
+部分代码如下
+```
+  nodes.text=function(text){//这个才是jQuery实际的效果，也就是当括号里面没有参数的时候，就是以数组方式获取多个文本，当括号里面有参数的时候就是设置多个文本。
+    if(text===undefined){
+      var texts = []
+      // texts.push(nodes[0].textContent)
+      for (let i = 0; i < nodes.length; i++) {
+       texts.push(nodes[i].textContent)
+      }
+      return texts
+    }
+    else{
+      for (let i = 0; i < nodes.length; i++) {
+        //  texts.push(nodes[i].textContent)
+          nodes[i].textContent=text
+        }
+    }
+  }
+```
+
 
 
 
