@@ -13,14 +13,27 @@ window.jQuery = function (nodeOrSelector) {
       length: 1
     }
   }
-
+  // console.log(nodes[0].textContent.__proto__)
   nodes.addClass = function (classes) {
     classes.forEach((value) => {
       for (i = 0; i < nodes.length; i++) {
         nodes[i].classList.add(value)
       }
     })
+
   }
+
+  nodes.getText = function () {
+    var texts = []
+    // texts.push(nodes[0].textContent)
+    for (let i = 0; i < nodes.length; i++) {
+    texts.push(nodes[i].textContent)
+    }
+    return texts
+
+  }
+
+
   return nodes//把17到24行换成26到34行也是一样的
 
   // return {
@@ -39,3 +52,5 @@ var node2 = jQuery('div>div')
 
 // node2.getSibings()//这里没有getSibings()了，因为比较麻烦
 node2.addClass(['red', 'border'])
+// node2.getText
+console.log(node2.getText())
