@@ -143,7 +143,7 @@ var node2 = jQuery('#item1')
 因为NodeList和HTMLCollection的原型中是没有Node的，直接就到Object了，但是其他的比如Element,Text,document中的原型是由Node的。
 
 ### 代码修改，return前的点操作符赋值为一个函数，和return后返回一个哈希，哈希里面有一个函数
-把17到24行换成26到34行也是一样的效果。就是main.js代码中的
+把17到24行换成26到34行也是一样的效果。就是main.js提交的（8389404）代码中的
 
 就是把17到24行代码
 ```
