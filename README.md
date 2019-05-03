@@ -113,7 +113,7 @@ node2.addClass(['red', 'border'])
 jQuery()的括号里面不仅可以传入DOM元素，还可以传入选择器，所以如果是选择器，那么就会出现字符串或者对象的判断。
 
 ### 需要注意的问题
-1. typeof 返回的是**字符串**，需要加引号，并且返回的对象的**第一个字母o是小写**，也就是'object'，字符串**第一个字母s也是小写**，也就是'string'。  
+1. typeof 返回的是**字符串**，需要加引号（**比如'#item3'**），并且返回的对象的**第一个字母o是小写**，也就是'object'(**比如item3**)，字符串**第一个字母s也是小写**，也就是'string'。  
 2. 为了保证node不变，并且node作为return之前的一个全局变量，那么应该在**return之前来判断传入的参数是DOM对象，还是字符串（选择器）**,经过判断之后把传入的参数经过操作后继续保存在node中，那么后续的代码都可以不用改变了。  
 3. 这样就可以使用选择器了，比如使用  
 `var node2 = jQuery('#item3')`  
@@ -133,6 +133,42 @@ window.jQuery = function(nodeOrSelector){//传入的nodeOrSelector在return之�
 }
 var node2 = jQuery('#item1')
 ```
+## 控制多个节点
+### instance of运算符
+[instanceof运算符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)用于测试构造函数的prototype属性是否出现在对象的原型链中的任何位置
+比如  
+`object(要检测的对象) instanceof constructor(某个构造函数)`  
+* 用法：
+可以检测选择的节点是否为单一的DOM节点，因为多个节点会返回[NodeList](https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList)(比如通过Document​.get​Elements​ByName()，Element​.query​SelectorAll()返回NodeList)或者[HTMLCollection](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCollection)(通过element​.get​Elements​ByTagName，Element​.get​Elements​ByClass​Name()返回HTMLCollection)。
+因为NodeList和HTMLCollection的原型中是没有Node的，直接就到Object了，但是其他的比如Element,Text,document中的原型是由Node的。
+
+### 代码修改，return前的点操作符赋值为一个函数，和return后返回一个哈希，哈希里面有一个函数
+把17到24行换成26到34行也是一样的效果。就是main.js代码中的
+
+就是把17到24行代码
+```
+  nodes.addClass = function (classes) {
+    classes.forEach((value) => {
+      for (i = 0; i < nodes.length; i++) {
+        nodes[i].classList.add(value)
+      }
+    })
+  }
+  return nodes//把17到24行换成26到34行也是一样的
+```
+替换为26到34行
+```
+   return {
+     addClass:function (classes) {
+       classes.forEach((value) => {
+         for (i = 0; i < nodes.length; i++) {
+           nodes[i].classList.add(value)
+         }
+       })
+     }
+   }
+  ```
+
 
 
 
