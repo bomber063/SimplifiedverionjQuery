@@ -1,33 +1,41 @@
-window.jQuery = function(nodeOrSelector){
-  let node
-    if(typeof nodeOrSelector==='string'){
-      node = document.querySelector(nodeOrSelector)
+window.jQuery = function (nodeOrSelector) {
+  let nodes = {}
+  if (typeof nodeOrSelector === 'string') {
+    var temp = document.querySelectorAll(nodeOrSelector)//为了引出一个原型链中只包含Object原型，所以引出一个临时变量
+    for (i = 0; i < temp.length; i++) {
+      nodes[i] = temp[i]
     }
-    else if(typeof nodeOrSelector==='object'){
-      node=nodeOrSelector
-    }
-  return {
-    getSibings: function () {
-      var allchirdren = node.parentNode.children
-      var arr = {
-        length: 0
-      }
-      for (i = 0; i < allchirdren.length; i++) {//该循环是为了是想一个伪数组
-        if (allchirdren[i] !== node) {
-          arr[arr.length] = allchirdren[i]
-          arr.length += 1
-        }
-      }
-      return arr
-    },
-    addClass: function (classes) {
-      classes.forEach((value) => node.classList.add(value))
+    nodes.length = temp.length
+  }
+  else if (nodeOrSelector instanceof Node) {//instanceof Node是为了检测他不是一个DOM集合
+    nodes = {
+      0: nodeOrSelector,
+      length: 1
     }
   }
+
+  nodes.addClass = function (classes) {
+    classes.forEach((value) => {
+      for (i = 0; i < nodes.length; i++) {
+        nodes[i].classList.add(value)
+      }
+    })
+  }
+  return nodes//把17到24行换成26到34行也是一样的
+
+  // return {
+  //   addClass:function (classes) {
+  //     classes.forEach((value) => {
+  //       for (i = 0; i < nodes.length; i++) {
+  //         nodes[i].classList.add(value)
+  //       }
+  //     })
+  //   }
+  // }
 }
 
-var node2 = jQuery('#item1')
+var node2 = jQuery('div>div')
 // var node2=jQuery('div>div:nth-child(0n+1)')
 
-node2.getSibings()//这里因为getSibings刚好就代表了一个函数，那么可以不用写出括号，当然写出括号，括号里面不带值也是一样的效果
+// node2.getSibings()//这里没有getSibings()了，因为比较麻烦
 node2.addClass(['red', 'border'])
