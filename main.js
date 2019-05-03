@@ -27,9 +27,20 @@ window.jQuery = function (nodeOrSelector) {
     var texts = []
     // texts.push(nodes[0].textContent)
     for (let i = 0; i < nodes.length; i++) {
-    texts.push(nodes[i].textContent)
+     texts.push(nodes[i].textContent)
     }
     return texts
+
+  }
+
+  nodes.setText = function (text) {
+    // var texts = []
+    // texts.push(nodes[0].textContent)
+    for (let i = 0; i < nodes.length; i++) {
+    //  texts.push(nodes[i].textContent)
+      nodes[i].textContent=text
+    }
+    // return nodes
 
   }
 
@@ -53,4 +64,5 @@ var node2 = jQuery('div>div')
 // node2.getSibings()//这里没有getSibings()了，因为比较麻烦
 node2.addClass(['red', 'border'])
 // node2.getText
-console.log(node2.getText())
+// console.log(node2.getText())
+node2.setText('hi')
