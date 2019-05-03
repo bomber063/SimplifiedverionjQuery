@@ -168,6 +168,19 @@ var node2 = jQuery('#item1')
      }
    }
   ```
+### 以数组方式获取多个文本
+部分代码
+```
+  nodes.getText = function () {
+    var texts = []
+    // texts.push(nodes[0].textContent)
+    for (let i = 0; i < nodes.length; i++) {
+    texts.push(nodes[i].textContent)
+    }
+    return texts
+  }
+```
+
 
 
 
