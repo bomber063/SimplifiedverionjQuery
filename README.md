@@ -181,6 +181,21 @@ var node2 = jQuery('#item1')
   }
 ```
 
+### 设置多个文本
+部分代码
+```
+  nodes.setText = function (text) {
+    // var texts = []
+    // texts.push(nodes[0].textContent)
+    for (let i = 0; i < nodes.length; i++) {
+    //  texts.push(nodes[i].textContent)
+      nodes[i].textContent=text
+    }
+    // return nodes
+
+  }
+```
+
 
 
 
