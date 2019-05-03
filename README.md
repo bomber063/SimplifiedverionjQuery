@@ -218,6 +218,8 @@ var node2 = jQuery('#item1')
     }
   }
 ```
+## 真实的jQuery.text()
+[jQuery.text](https://www.jquery123.com/text/)[引文版](https://api.jquery.com/text/)当他括号里面为空有参数的时候，是设置多个文本，但是，当括号里面为空的时候，它返回的是一个字符串，并且使把所获得的文本全部都放在一起的一个字符串。  
 
 
 
