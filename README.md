@@ -19,3 +19,14 @@
 
 更详细的实现思路跟学习笔记见分支[sidebar](https://github.com/bomber063/SimplifiedverionjQuery/tree/sidebar)
 
+看完详细的细节，就对jQuery不陌生啦。  
+当然详细的JQuery还能做更多事情  
+1. jQuery 在兼容性方面做得很好，1.7 版本兼容到 IE 6；  
+2. jQuery 还有动画、AJAX 等模块，不止 DOM 操作；  
+3. jQuery 的功能更丰富；  
+4. jQuery 使用了 prototype，我们没有使用，等讲了 new 之后再用；  
+
+[jQuery中文文档](https://www.jquery123.com/)  
+[jQuery英文文档](https://api.jquery.com/)  
+[阮一峰关于jQuery设计思想](http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html)  
+
