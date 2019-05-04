@@ -30,3 +30,8 @@
 [jQuery英文文档](https://api.jquery.com/)  
 [阮一峰关于jQuery设计思想](http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html)  
 
+## 用jQuery的时候一个好的习惯
+最好在存jQuery返回的对象里面前面写一个$，以便更容易区别哪些是由jQuery的API生成的对象，而不会错用了DOM原生JavsScirpt的API：  
+例如：  
+`var $node=$('ul>li')`
+
