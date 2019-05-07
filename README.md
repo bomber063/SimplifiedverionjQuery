@@ -4,7 +4,7 @@
 ### 关键字，比如class不可以作为函数的形参
 用了class作为addClass函数的形参，调用该addClass函数的报错error SyntaxError: Unexpected token class  
 后面改用classes作为形参就解决了。  
-经过查询解析为：函数返回值在寄存器中, 没有地址, 不能作为形参，但可以作为实参  
+为什么关键字class不能作为形参？ 
 
 ### script标签要放到body标签的最后
 <script src="./main.js"></script>
